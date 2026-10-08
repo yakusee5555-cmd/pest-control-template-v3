@@ -63,10 +63,6 @@ export default function Hero() {
           alt="ShieldPest Control technician treating a home exterior in Orlando"
           draggable={false}
           className="hero-fore h-full w-full object-cover"
-          style={{
-            WebkitMaskImage: "linear-gradient(to bottom, transparent 34%, black 66%)",
-            maskImage: "linear-gradient(to bottom, transparent 34%, black 66%)",
-          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
       </div>
