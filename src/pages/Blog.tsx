@@ -15,7 +15,7 @@ export default function Blog() {
           <>
             Straight talk
             <br />
-            about trees.
+            about pests.
           </>
         }
         sub="No fluff — just what our crew actually tells customers on the job."
@@ -59,8 +59,8 @@ export default function Blog() {
       </section>
 
       <CtaBand
-        title="Got a tree question?"
-        sub="Ask us directly — free advice with every estimate, and honest answers when a tree just needs to come down."
+        title="Got a pest question?"
+        sub="Ask us directly — free advice with every estimate, and honest answers about what you're dealing with."
       />
     </>
   );

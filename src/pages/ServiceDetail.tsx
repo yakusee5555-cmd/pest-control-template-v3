@@ -49,9 +49,9 @@ export default function ServiceDetail() {
       </section>
 
       {/* what's included */}
-      <section className="bg-ink py-12 md:py-20">
+      <section className="bg-forest-deep py-12 md:py-20">
         <div className="mx-auto max-w-7xl px-6 md:px-12">
-          <p className="reveal text-[11px] font-bold uppercase tracking-[0.3em] text-cream/50">
+          <p className="reveal text-[11px] font-bold uppercase tracking-[0.3em] text-cream/60">
             What's included
           </p>
           <h2 className="reveal mt-3 font-display text-2xl uppercase leading-[1.05] text-cream md:text-5xl">
@@ -64,7 +64,7 @@ export default function ServiceDetail() {
                 className="reveal flex items-start gap-3 rounded-2xl border border-cream/15 bg-white/[0.03] p-5"
                 style={{ transitionDelay: `${(i % 3) * 80}ms` }}
               >
-                <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-forest" />
+                <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-cream" />
                 <span className="text-base text-cream/80">{inc}</span>
               </li>
             ))}
@@ -106,7 +106,7 @@ export default function ServiceDetail() {
       {/* pricing hint */}
       <section className="bg-cream pb-12 md:pb-20">
         <div className="mx-auto max-w-7xl px-6 md:px-12">
-          <div className="reveal flex flex-col items-start justify-between gap-6 rounded-3xl bg-ink p-8 md:flex-row md:items-center md:p-10">
+          <div className="reveal flex flex-col items-start justify-between gap-6 rounded-3xl bg-forest-deep p-8 md:flex-row md:items-center md:p-10">
             <div>
               <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-cream/50">
                 Pricing
@@ -117,7 +117,7 @@ export default function ServiceDetail() {
             </div>
             <Link
               to="/#pricing"
-              className="flex min-h-[52px] shrink-0 items-center justify-center rounded-full border border-cream/30 px-10 py-4 text-sm font-bold uppercase tracking-[0.2em] text-cream transition hover:bg-cream hover:text-ink"
+              className="flex min-h-[52px] shrink-0 items-center justify-center rounded-full border border-cream/30 px-10 py-4 text-sm font-bold uppercase tracking-[0.2em] text-cream transition hover:bg-cream hover:text-forest-deep"
             >
               See packages
             </Link>
@@ -138,9 +138,9 @@ export default function ServiceDetail() {
       </section>
 
       {/* other services */}
-      <section className="bg-ink py-12 md:py-20">
+      <section className="bg-ivory py-12 md:py-20">
         <div className="mx-auto max-w-7xl px-6 md:px-12">
-          <h2 className="reveal font-display text-2xl uppercase text-cream md:text-4xl">
+          <h2 className="reveal font-display text-2xl uppercase text-charcoal md:text-4xl">
             Other services.
           </h2>
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
@@ -148,10 +148,10 @@ export default function ServiceDetail() {
               <Link
                 key={o.slug}
                 to={`/services/${o.slug}`}
-                className="reveal group rounded-2xl border border-cream/15 bg-white/[0.03] p-6 transition hover:bg-white/[0.07]"
+                className="reveal group rounded-2xl bg-forest p-6 transition hover:bg-moss"
               >
                 <h3 className="font-display text-lg uppercase text-cream md:text-xl">{o.title}</h3>
-                <p className="mt-1 text-sm text-cream/55">{o.tagline}</p>
+                <p className="mt-1 text-sm text-cream/70">{o.tagline}</p>
                 <span className="mt-4 inline-block text-sm font-bold uppercase tracking-[0.2em] text-cream transition group-hover:translate-x-1">
                   View →
                 </span>

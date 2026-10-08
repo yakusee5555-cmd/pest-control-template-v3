@@ -1,6 +1,15 @@
 import Hero from "../components/Hero";
-import { Contact, Reviews } from "../components/Sections";
-import { FullBleed, Pricing, Stacked, Work } from "../components/Showcase";
+import { Contact, Faq, Reviews } from "../components/Sections";
+import {
+  BlogTeasers,
+  FullBleed,
+  Pricing,
+  Process,
+  Services,
+  TrustStats,
+  WhyUs,
+  Work,
+} from "../components/Showcase";
 import { Marquee } from "../components/MotionBits";
 import { RouteFX } from "../components/PageBits";
 
@@ -26,11 +35,16 @@ export default function Home() {
       />
       <Hero />
       <Marquee items={MARQUEE_ITEMS} />
-      <Stacked />
+      <TrustStats />
+      <Services />
+      <WhyUs />
+      <Process />
       <FullBleed />
-      <Work />
       <Pricing />
+      <Work />
       <Reviews />
+      <Faq />
+      <BlogTeasers />
       <Contact />
     </>
   );

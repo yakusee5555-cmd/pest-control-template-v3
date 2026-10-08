@@ -46,16 +46,16 @@ export function PageHero({
   img?: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-ink pb-10 pt-32 md:pb-20 md:pt-44">
+    <section className="relative overflow-hidden bg-forest-deep pb-10 pt-32 md:pb-20 md:pt-44">
       {img && (
         <>
           <img
             src={img}
             alt=""
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-25"
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-20"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-forest-deep via-forest-deep/70 to-forest-deep/40" />
         </>
       )}
       <div className="relative mx-auto max-w-7xl px-6 md:px-12">
@@ -86,22 +86,22 @@ export function CtaBand({
   return (
     <section className="bg-cream py-12 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-12">
-        <div className="reveal flex flex-col items-start justify-between gap-6 rounded-3xl bg-ink p-8 md:flex-row md:items-center md:p-12">
+        <div className="reveal flex flex-col items-start justify-between gap-6 rounded-3xl bg-forest-deep p-8 md:flex-row md:items-center md:p-12">
           <div>
             <h2 className="font-display text-2xl uppercase leading-tight text-cream md:text-4xl">
               {title}
             </h2>
-            <p className="mt-2 max-w-xl text-base text-cream/60">{sub}</p>
+            <p className="mt-2 max-w-xl text-base text-cream/65">{sub}</p>
             <a
               href={BUSINESS.phoneHref}
-              className="mt-4 inline-block font-display text-2xl text-cream underline decoration-forest decoration-4 underline-offset-8 hover:text-white md:text-3xl"
+              className="mt-4 inline-block font-display text-2xl text-cream underline decoration-moss decoration-4 underline-offset-8 hover:text-white md:text-3xl"
             >
               {BUSINESS.phone}
             </a>
           </div>
           <Link
             to="/contact"
-            className="flex min-h-[52px] shrink-0 items-center justify-center rounded-full bg-cream px-10 py-4 text-sm font-bold uppercase tracking-[0.2em] text-ink transition-colors hover:bg-white"
+            className="flex min-h-[52px] shrink-0 items-center justify-center rounded-full bg-forest px-10 py-4 text-sm font-bold uppercase tracking-[0.2em] text-white transition-colors hover:bg-moss"
           >
             Free estimate
           </Link>
@@ -129,7 +129,7 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
                 {f.q}
               </span>
               <span
-                className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#059669] text-xl text-cream transition-transform duration-300 ${
+                className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-forest text-xl text-white transition-transform duration-300 ${
                   isOpen ? "rotate-45" : ""
                 }`}
               >

@@ -1,112 +1,111 @@
 import { useEffect, useRef } from "react";
+import { BUSINESS } from "../data";
 import { ScrollCue } from "./MotionBits";
-import QuoteForm from "./QuoteForm";
+
+const HEADLINE = ["PEST-FREE", "HOME.", "GUARANTEED."];
 
 export default function Hero() {
-  const backRef = useRef<HTMLDivElement>(null);
-  const foreRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const markRef = useRef<HTMLHeadingElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    // Skip parallax on mobile + reduced-motion: layers stay static, content fully visible
-    if (
-      window.matchMedia("(max-width: 767px)").matches ||
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) {
-      return;
+    // Respect reduced-motion: pause the video, poster stays visible
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      videoRef.current?.pause();
     }
-    let raf = 0;
-    const onScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        const y = window.scrollY;
-        if (backRef.current) backRef.current.style.transform = `translateY(${y * 0.25}px)`;
-        if (foreRef.current) foreRef.current.style.transform = `translateY(${y * 0.12}px)`;
-        if (markRef.current) {
-          // wordmark drifts up slower and shrinks as you scroll — scrollytelling depth
-          const s = Math.max(0.72, 1 - y / 2400);
-          markRef.current.style.transform = `translateY(${-y * 0.08}px) scale(${s})`;
-          markRef.current.style.opacity = String(Math.max(0.25, 1 - y / 900));
-        }
-        if (contentRef.current)
-          contentRef.current.style.opacity = String(Math.max(0, 1 - y / 500));
-      });
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      cancelAnimationFrame(raf);
-    };
   }, []);
 
   return (
-    <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-[#0b100d]">
-      {/* BACK LAYER — atmosphere + giant wordmark sitting behind the trees */}
-      <div ref={backRef} className="absolute inset-0 will-change-transform">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,#18261c_0%,#0b100d_70%)]" />
-        <div className="absolute inset-0 flex items-center justify-center px-4">
-          <h1
-            ref={markRef}
-            className="hero-title font-display font-black text-[#f4efe4] leading-none tracking-tight select-none text-[clamp(1.6rem,7vw,12rem)] will-change-transform [text-shadow:0_2px_60px_rgba(0,0,0,0.65)]"
-          >
-            SHIELDPEST
-          </h1>
-        </div>
+    <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-forest-deep">
+      {/* VIDEO BACKDROP */}
+      <div className="absolute inset-0">
+        <video
+          ref={videoRef}
+          className="hero-in-img h-full w-full object-cover"
+          src="/video/hero.mp4"
+          poster="/img/pest/hero-hires.webp"
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden="true"
+        />
       </div>
 
-      {/* FRONT LAYER — trees overlapping the wordmark */}
-      <div ref={foreRef} className="absolute inset-0 z-10 will-change-transform pointer-events-none">
-        <img
-          src="/img/pest/hero-hires.webp"
-          alt="ShieldPest Control technician treating a home exterior in Orlando"
-          draggable={false}
-          className="hero-fore h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-      </div>
+      {/* LEGIBILITY OVERLAYS — green-tinted dark at edges, clearer center */}
+      <div
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(14,42,32,0.15)_0%,rgba(14,42,32,0.62)_100%)]"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-0 bg-gradient-to-t from-[#0e2a20]/85 via-transparent to-[#0e2a20]/55"
+        aria-hidden="true"
+      />
 
       {/* CONTENT */}
-      <div
-        ref={contentRef}
-        className="relative z-20 flex flex-1 flex-col justify-between px-6 md:px-12 pt-28 pb-10"
-      >
-        <div className="hero-fade flex justify-end" style={{ animationDelay: "0.9s" }}>
-          <p className="text-right text-[11px] md:text-xs font-bold tracking-[0.35em] text-white/95 leading-loose">
-            INSPECT<br />TREAT<br />PREVENT
-          </p>
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6 pb-24 pt-36 md:px-12 md:pt-40">
+        <p
+          className="hero-fade inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.35em] text-cream/90 md:text-xs"
+          style={{ animationDelay: "0.5s" }}
+        >
+          <span className="inline-block h-2 w-2 rounded-full bg-[#4ade80]" aria-hidden="true" />
+          Orlando&apos;s pest control
+        </p>
+
+        <h1 className="mt-5 font-display font-black uppercase leading-[0.95] text-cream [text-shadow:0_3px_40px_rgba(0,0,0,0.55)] text-[clamp(3rem,10vw,8.5rem)]">
+          {HEADLINE.map((word, i) => (
+            <span key={word} className="block overflow-hidden pb-1">
+              <span
+                className="hero-fade block"
+                style={{ animationDelay: `${0.65 + i * 0.14}s` }}
+              >
+                {word}
+              </span>
+            </span>
+          ))}
+        </h1>
+
+        <p
+          className="hero-fade mt-6 max-w-xl text-lg leading-relaxed text-cream/85 md:text-xl"
+          style={{ animationDelay: "1.15s" }}
+        >
+          Same-day service. Safe for kids and pets. One call and the pests are
+          our problem — not yours.
+        </p>
+
+        <div
+          className="hero-fade mt-9 flex flex-col gap-3 sm:flex-row"
+          style={{ animationDelay: "1.3s" }}
+        >
+          <a
+            href={BUSINESS.phoneHref}
+            className="btn-shine flex min-h-[56px] items-center justify-center rounded-full bg-forest px-10 py-4 text-center text-sm font-bold uppercase tracking-[0.2em] text-white shadow-[0_16px_40px_rgba(0,0,0,0.35)] transition hover:bg-moss"
+          >
+            Call {BUSINESS.phone}
+          </a>
+          <a
+            href="#contact"
+            className="flex min-h-[56px] items-center justify-center rounded-full border-2 border-cream/70 px-10 py-4 text-center text-sm font-bold uppercase tracking-[0.2em] text-cream transition hover:bg-cream hover:text-forest-deep"
+          >
+            Free inspection
+          </a>
         </div>
 
-        <div className="grid items-end gap-8 lg:grid-cols-[1fr_auto]">
-          <div>
-            <p
-              className="hero-fade text-center text-xs md:text-sm font-bold tracking-[0.5em] text-white lg:text-left"
-              style={{ animationDelay: "1.1s" }}
-            >
-              PEST CONTROL
-            </p>
-            <div
-              className="hero-fade mt-8 flex flex-col gap-3 sm:flex-row"
-              style={{ animationDelay: "1.2s" }}
-            >
-              <a
-                href="#contact"
-                className="btn-shine flex min-h-[48px] items-center justify-center rounded-full bg-[#f4efe4] px-8 py-4 text-center text-sm font-bold tracking-widest text-[#0b100d] hover:bg-white transition-colors"
-              >
-                FREE INSPECTION
-              </a>
-              <a
-                href="tel:+14075550128"
-                className="btn-shine flex min-h-[48px] items-center justify-center rounded-full border border-white/60 px-8 py-4 text-center text-sm font-bold tracking-widest text-white hover:bg-white/10 transition-colors"
-              >
-                (407) 555-0128
-              </a>
-            </div>
-          </div>
-          <QuoteForm />
+        {/* TRUST ROW */}
+        <div
+          className="hero-fade mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-cream/90"
+          style={{ animationDelay: "1.45s" }}
+        >
+          <span className="flex items-center gap-2 text-sm font-semibold">
+            <span className="text-star" aria-hidden="true">★★★★★</span>
+            {BUSINESS.rating} · {BUSINESS.reviewCount} Google reviews
+          </span>
+          <span className="hidden h-4 w-px bg-cream/30 sm:block" aria-hidden="true" />
+          <span className="text-sm font-semibold">Licensed &amp; insured</span>
+          <span className="hidden h-4 w-px bg-cream/30 sm:block" aria-hidden="true" />
+          <span className="text-sm font-semibold">{BUSINESS.emergency}</span>
         </div>
       </div>
+
       <ScrollCue />
     </section>
   );

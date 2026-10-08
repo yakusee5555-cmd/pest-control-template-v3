@@ -36,17 +36,17 @@ export default function ServiceAreas() {
           </div>
 
           <div className="reveal mt-10 grid gap-5 md:mt-14 lg:grid-cols-2">
-            <div className="rounded-3xl bg-ink p-8 md:p-10">
+            <div className="rounded-3xl bg-forest-deep p-8 md:p-10">
               <h2 className="font-display text-2xl uppercase text-cream md:text-3xl">
                 Inside the area?
               </h2>
-              <p className="mt-3 text-base leading-relaxed text-cream/65">
+              <p className="mt-3 text-base leading-relaxed text-cream/70">
                 Free inspections, usually same-day or next-day. Same-day pest response
                 anywhere in Orlando.
               </p>
               <Link
                 to="/contact"
-                className="mt-6 inline-flex min-h-[52px] items-center justify-center rounded-full bg-cream px-10 py-4 text-sm font-bold uppercase tracking-[0.2em] text-ink transition hover:bg-white"
+                className="mt-6 inline-flex min-h-[52px] items-center justify-center rounded-full bg-cream px-10 py-4 text-sm font-bold uppercase tracking-[0.2em] text-forest-deep transition hover:bg-white"
               >
                 Get a free inspection
               </Link>
@@ -62,7 +62,7 @@ export default function ServiceAreas() {
               </p>
               <a
                 href={BUSINESS.phoneHref}
-                className="mt-6 inline-flex min-h-[52px] items-center justify-center rounded-full bg-forest px-10 py-4 text-sm font-bold uppercase tracking-[0.2em] text-white transition hover:bg-forest-deep"
+                className="mt-6 inline-flex min-h-[52px] items-center justify-center rounded-full bg-forest px-10 py-4 text-sm font-bold uppercase tracking-[0.2em] text-white transition hover:bg-moss"
               >
                 Call {BUSINESS.phone}
               </a>

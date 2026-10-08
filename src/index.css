@@ -2,10 +2,14 @@
 
 @theme {
   --color-forest: #1b4332;
-  --color-forest-deep: #022C22;
+  --color-forest-deep: #0e2a20;
+  --color-moss: #2d5a3d;
+  --color-sage: #dce8df;
   --color-cream: #faf6f0;
+  --color-ivory: #fffdf7;
   --color-charcoal: #1a1a1a;
   --color-ink: #101010;
+  --color-star: #f59e0b;
   --font-display: "Anton", "Arial Black", sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
 }

@@ -53,7 +53,7 @@ export default function BlogPost() {
           <div className="reveal mt-10 flex flex-wrap gap-4 border-t border-charcoal/10 pt-8">
             <Link
               to="/contact"
-              className="inline-flex min-h-[52px] items-center justify-center rounded-full bg-forest px-10 py-4 text-sm font-bold uppercase tracking-[0.2em] text-white transition hover:bg-forest-deep"
+              className="inline-flex min-h-[52px] items-center justify-center rounded-full bg-forest px-10 py-4 text-sm font-bold uppercase tracking-[0.2em] text-white transition hover:bg-moss"
             >
               Get a free estimate
             </Link>
@@ -68,7 +68,7 @@ export default function BlogPost() {
       </article>
 
       {others.length > 0 && (
-        <section className="bg-ink py-12 md:py-20">
+        <section className="bg-forest-deep py-12 md:py-20">
           <div className="mx-auto max-w-7xl px-6 md:px-12">
             <h2 className="reveal font-display text-2xl uppercase text-cream md:text-4xl">
               Keep reading.
@@ -78,7 +78,7 @@ export default function BlogPost() {
                 <Link
                   key={o.slug}
                   to={`/blog/${o.slug}`}
-                  className="reveal group rounded-3xl border border-cream/15 bg-white/[0.03] p-7 transition hover:bg-white/[0.07]"
+                  className="reveal group rounded-3xl bg-forest p-7 transition hover:bg-moss"
                 >
                   <p className="text-xs font-bold uppercase tracking-[0.25em] text-cream/45">
                     {o.date} · {o.readTime}

@@ -38,7 +38,7 @@ export default function Services() {
               <Link
                 key={s.slug}
                 to={`/services/${s.slug}`}
-                className="reveal group overflow-hidden rounded-3xl bg-ink shadow-lg transition-transform duration-500 hover:-translate-y-1.5"
+                className="reveal group overflow-hidden rounded-3xl bg-ivory shadow-[0_10px_40px_rgba(27,67,50,0.10)] ring-1 ring-charcoal/5 transition-transform duration-500 hover:-translate-y-1.5"
                 style={{ transitionDelay: `${(i % 2) * 90}ms` }}
               >
                 <div className="relative aspect-[16/9] overflow-hidden">
@@ -48,17 +48,17 @@ export default function Services() {
                     loading="lazy"
                     className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                 </div>
                 <div className="p-7 md:p-8">
-                  <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-cream/50">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-forest/60">
                     {String(i + 1).padStart(2, "0")}
                   </p>
-                  <h2 className="mt-2 font-display text-2xl uppercase text-cream md:text-3xl">
+                  <h2 className="mt-2 font-display text-2xl uppercase text-charcoal md:text-3xl">
                     {s.title}
                   </h2>
-                  <p className="mt-2 text-base text-cream/65">{BLURBS[s.slug]}</p>
-                  <span className="mt-5 inline-flex min-h-[48px] items-center text-sm font-bold uppercase tracking-[0.2em] text-cream transition group-hover:translate-x-1">
+                  <p className="mt-2 text-base text-charcoal/60">{BLURBS[s.slug]}</p>
+                  <span className="mt-5 inline-flex min-h-[48px] items-center text-sm font-bold uppercase tracking-[0.2em] text-forest transition group-hover:translate-x-1">
                     View service →
                   </span>
                 </div>
@@ -71,9 +71,10 @@ export default function Services() {
               Something else?
             </h2>
             <p className="mt-2 max-w-2xl text-base leading-relaxed text-charcoal/65">
-              Lot clearing, cabling and bracing, hedge work, view clearing — if it involves
-              trees, we've probably done it. Describe the job and we'll tell you straight
-              whether we're the right crew.
+              Something else bugging you? Bats in the attic, bees in the wall, pantry
+              moths that won&apos;t quit — if it crawls, flies, or nests where it
+              shouldn&apos;t, we&apos;ve probably handled it. Describe the job and we&apos;ll
+              tell you straight whether we&apos;re the right crew.
             </p>
             <Link
               to="/contact"

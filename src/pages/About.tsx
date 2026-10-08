@@ -83,7 +83,7 @@ export default function About() {
       </section>
 
       {/* stats band */}
-      <section className="bg-ink py-12 md:py-20">
+      <section className="bg-forest-deep py-12 md:py-20">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 md:grid-cols-4 md:px-12">
           {[
             { n: <CountUp to={10} suffix="+" />, l: "Years in business" },
@@ -129,7 +129,7 @@ export default function About() {
       </section>
 
       {/* timeline */}
-      <section className="bg-[#022C22] py-12 md:py-24">
+      <section className="bg-forest-deep py-12 md:py-24">
         <div className="mx-auto max-w-5xl px-6 md:px-12">
           <p className="reveal text-[11px] font-bold uppercase tracking-[0.3em] text-cream/60">
             The short version
@@ -162,7 +162,7 @@ export default function About() {
             {GLASS_CARDS.map((c, i) => (
               <div
                 key={c.title}
-                className="reveal rounded-3xl bg-ink p-6 md:p-7"
+                className="reveal rounded-3xl bg-forest p-6 md:p-7"
                 style={{ transitionDelay: `${i * 90}ms` }}
               >
                 <h3 className="font-display text-lg uppercase text-cream">{c.title}</h3>
@@ -173,7 +173,7 @@ export default function About() {
           <div className="reveal mt-10 grid grid-cols-1 gap-5 md:mt-14 md:grid-cols-2">
             {REVIEWS.slice(0, 2).map((r) => (
               <figure key={r.name} className="rounded-3xl border border-charcoal/10 bg-white p-7">
-                <div className="text-amber-400">★★★★★</div>
+                <div className="text-star">★★★★★</div>
                 <blockquote className="mt-3 text-base leading-relaxed text-charcoal/80">
                   "{r.text}"
                 </blockquote>
@@ -186,7 +186,7 @@ export default function About() {
           <div className="reveal mt-10 text-center">
             <Link
               to="/services"
-              className="inline-flex min-h-[52px] items-center justify-center rounded-full bg-forest px-10 py-4 text-sm font-bold uppercase tracking-[0.2em] text-white transition hover:bg-forest-deep"
+              className="inline-flex min-h-[52px] items-center justify-center rounded-full bg-forest px-10 py-4 text-sm font-bold uppercase tracking-[0.2em] text-white transition hover:bg-moss"
             >
               See what we do
             </Link>

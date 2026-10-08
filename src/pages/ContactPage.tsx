@@ -28,7 +28,7 @@ export default function ContactPage() {
       {/* styled address card instead of an external map embed */}
       <section className="bg-cream pb-16 md:pb-24">
         <div className="mx-auto max-w-7xl px-6 md:px-12">
-          <div className="reveal overflow-hidden rounded-3xl bg-ink">
+          <div className="reveal overflow-hidden rounded-3xl bg-forest-deep">
             <div className="grid md:grid-cols-2">
               <div className="p-8 md:p-12">
                 <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-cream/50">
@@ -59,7 +59,7 @@ export default function ContactPage() {
                 </dl>
                 <a
                   href={BUSINESS.phoneHref}
-                  className="mt-8 inline-flex min-h-[52px] items-center justify-center rounded-full bg-cream px-10 py-4 text-sm font-bold uppercase tracking-[0.2em] text-ink transition hover:bg-white"
+                  className="mt-8 inline-flex min-h-[52px] items-center justify-center rounded-full bg-cream px-10 py-4 text-sm font-bold uppercase tracking-[0.2em] text-forest-deep transition hover:bg-white"
                 >
                   Call {BUSINESS.phone}
                 </a>
@@ -73,7 +73,7 @@ export default function ContactPage() {
                 />
                 <div className="absolute inset-0 bg-forest/30" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="rounded-full bg-ink/80 px-8 py-4 backdrop-blur">
+                  <div className="rounded-full bg-forest-deep/85 px-8 py-4 backdrop-blur">
                     <p className="font-display text-lg uppercase tracking-wide text-cream">
                       Orlando, FL
                     </p>

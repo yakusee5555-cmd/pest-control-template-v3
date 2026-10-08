@@ -19,7 +19,7 @@ export function useReveal() {
   return ref;
 }
 
-/* ---------- floating pill header + slide-out drawer (like the video's nav) ---------- */
+/* ---------- floating pill header + slide-out drawer ---------- */
 export function Header() {
   const [open, setOpen] = useState(false);
 
@@ -38,10 +38,10 @@ export function Header() {
   return (
     <>
       <header className="fixed inset-x-0 top-4 z-50 px-4 md:top-6 md:px-8">
-        <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 rounded-full border border-white/30 bg-cream/90 py-2.5 pl-3 pr-2.5 shadow-[0_10px_40px_rgba(0,0,0,0.25)] backdrop-blur-md md:pl-5">
+        <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 rounded-full border border-charcoal/10 bg-cream/95 py-2.5 pl-3 pr-2.5 shadow-[0_10px_40px_rgba(27,67,50,0.18)] backdrop-blur-md md:pl-5">
           <Link to="/" onClick={() => setOpen(false)} className="flex min-h-[48px] items-center gap-2.5">
-            <svg viewBox="0 0 64 64" className="h-9 w-9">
-              <rect width="64" height="64" rx="14" fill="#022C22" />
+            <svg viewBox="0 0 64 64" className="h-9 w-9" aria-hidden="true">
+              <rect width="64" height="64" rx="14" fill="#1B4332" />
               <text x="32" y="44" font-family="Arial Black, sans-serif" font-size="36" font-weight="900" fill="#FAF6F0" text-anchor="middle">S</text>
             </svg>
             <span className="font-display text-lg uppercase tracking-wide text-charcoal">
@@ -53,7 +53,7 @@ export function Header() {
               <Link
                 key={n.href}
                 to={n.href}
-                className="flex min-h-[48px] items-center text-[13px] font-semibold uppercase tracking-wider text-charcoal/70 transition hover:text-charcoal"
+                className="flex min-h-[48px] items-center text-[13px] font-semibold uppercase tracking-wider text-charcoal/70 transition hover:text-forest"
               >
                 {n.label}
               </Link>
@@ -62,7 +62,7 @@ export function Header() {
           <div className="flex items-center gap-2">
             <a
               href={BUSINESS.phoneHref}
-              className="hidden min-h-[48px] items-center rounded-full bg-forest px-6 text-xs font-bold uppercase tracking-widest text-white transition hover:bg-forest-deep sm:flex"
+              className="hidden min-h-[48px] items-center rounded-full bg-forest px-6 text-xs font-bold uppercase tracking-widest text-white transition hover:bg-moss sm:flex"
             >
               {BUSINESS.phone}
             </a>
@@ -70,7 +70,7 @@ export function Header() {
               onClick={() => setOpen(!open)}
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
-              className="flex h-12 w-12 flex-col items-center justify-center gap-1.5 rounded-full bg-charcoal lg:hidden"
+              className="flex h-12 w-12 flex-col items-center justify-center gap-1.5 rounded-full bg-forest lg:hidden"
             >
               <span className={`h-[2px] w-5 bg-cream transition ${open ? "translate-y-[7px] rotate-45" : ""}`} />
               <span className={`h-[2px] w-5 bg-cream transition ${open ? "opacity-0" : ""}`} />
@@ -84,7 +84,7 @@ export function Header() {
       <div
         aria-hidden="true"
         onClick={() => setOpen(false)}
-        className={`fixed inset-0 z-40 bg-ink/60 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
+        className={`fixed inset-0 z-40 bg-forest-deep/60 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
           open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
       />
@@ -113,9 +113,6 @@ export function Header() {
             tabIndex={open ? 0 : -1}
             className="flex min-h-[52px] items-center justify-center gap-2 rounded-full border-2 border-forest text-sm font-bold uppercase tracking-widest text-forest"
           >
-            <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-current" strokeWidth="2">
-              <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
             {BUSINESS.phone}
           </a>
           <Link
@@ -132,60 +129,59 @@ export function Header() {
   );
 }
 
-/* ---------- reviews (editorial) ---------- */
+/* ---------- reviews ---------- */
 export function Reviews() {
   return (
-    <section id="reviews" className="bg-[#022C22] py-12 md:py-32">
+    <section id="reviews" className="bg-cream py-16 md:py-28">
       <div className="mx-auto max-w-7xl px-6 md:px-12">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <p className="reveal text-[11px] font-bold uppercase tracking-[0.3em] text-cream/60">
+            <p className="reveal text-[11px] font-bold uppercase tracking-[0.3em] text-forest">
               Reviews
             </p>
-            <h2 className="reveal mt-3 font-display text-2xl uppercase leading-[1.05] text-cream md:text-6xl md:leading-[1.02]">
+            <h2 className="reveal mt-3 font-display text-3xl uppercase leading-[1.05] text-charcoal md:text-5xl">
               Neighbors
               <br />
               vouch for us.
             </h2>
           </div>
           <div className="reveal flex items-center gap-3">
-            <span className="font-display text-4xl text-cream md:text-5xl">{BUSINESS.rating}</span>
-            <span className="text-sm text-cream/70">
-              ★★★★★
+            <span className="font-display text-4xl text-forest md:text-5xl">{BUSINESS.rating}</span>
+            <span className="text-sm text-charcoal/60">
+              <span className="text-star" aria-hidden="true">★★★★★</span>
               <br />
               {BUSINESS.reviewCount} Google reviews
             </span>
           </div>
         </div>
-        <div className="mt-8 grid grid-cols-1 gap-5 md:mt-12 md:grid-cols-2 lg:grid-cols-4">
-          {REVIEWS.map((r, i) => (
+        <div data-stagger className="mt-10 grid grid-cols-1 gap-5 md:mt-14 md:grid-cols-2 lg:grid-cols-4">
+          {REVIEWS.map((r) => (
             <figure
               key={r.name}
-              className="reveal flex flex-col rounded-3xl bg-cream p-6 shadow-lg"
-              style={{ transitionDelay: `${i * 80}ms` }}
+              className="reveal flex flex-col rounded-3xl bg-ivory p-6 ring-1 ring-charcoal/5 shadow-[0_10px_40px_rgba(27,67,50,0.08)]"
             >
-              <div className="text-amber-400">★★★★★</div>
-              <blockquote className="mt-3 flex-1 text-base leading-relaxed text-charcoal/80">
-                "{r.text}"
+              <div className="text-star" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote className="mt-3 flex-1 text-[15px] leading-relaxed text-charcoal/75">
+                &ldquo;{r.text}&rdquo;
               </blockquote>
               <figcaption className="mt-4 border-t border-charcoal/10 pt-3">
                 <p className="font-bold text-charcoal">{r.name}</p>
-                <p className="text-sm text-charcoal/60">{r.town}, NY</p>
+                <p className="text-sm text-charcoal/55">{r.town}, FL</p>
               </figcaption>
             </figure>
           ))}
         </div>
 
         {/* service areas */}
-        <div className="mt-10 md:mt-16">
-          <p className="reveal text-[11px] font-bold uppercase tracking-[0.3em] text-cream/60">
+        <div className="mt-12 md:mt-20">
+          <p className="reveal text-[11px] font-bold uppercase tracking-[0.3em] text-forest">
             Service areas
           </p>
           <div className="reveal mt-5 flex flex-wrap gap-2.5">
             {TOWNS.map((t) => (
               <span
                 key={t}
-                className="inline-flex min-h-[48px] items-center rounded-full border border-cream/25 px-5 text-sm font-semibold text-cream/85 transition hover:bg-cream hover:text-forest"
+                className="inline-flex min-h-[48px] items-center rounded-full border border-forest/25 bg-ivory px-5 text-sm font-semibold text-charcoal/80 transition hover:bg-forest hover:text-white"
               >
                 {t}
               </span>
@@ -197,55 +193,132 @@ export function Reviews() {
   );
 }
 
+/* ---------- FAQ ---------- */
+
+/* ---------- FAQ ---------- */
+const FAQS = [
+  {
+    q: "Is your treatment safe for kids and pets?",
+    a: "Yes. We use family-first products applied the right way — targeted where pests live, not broadcast across your home. Once dry (about an hour), treated areas are safe for kids and pets to be around.",
+  },
+  {
+    q: "How fast can you come out?",
+    a: "Usually same-day. Call before noon and we'll get a tech to you that afternoon in most of our service area. Wildlife in the attic or a wasp nest by the door jumps the queue.",
+  },
+  {
+    q: "What does the quarterly plan actually include?",
+    a: "Four scheduled treatments a year covering interior and exterior, termite monitoring, and seasonal pest targeting. If anything shows up between visits, re-treats are free — just call.",
+  },
+  {
+    q: "Do you guarantee your work?",
+    a: "Every service carries a written guarantee. One-time treatments include a 30-day guarantee; quarterly plans include free re-treats for the life of the plan; termite treatments include a 1-year warranty.",
+  },
+  {
+    q: "Will I need to leave the house during treatment?",
+    a: "Usually not. Most treatments take 30–45 minutes and you can stay home — we'll just ask you to keep clear of the rooms being treated until they dry.",
+  },
+  {
+    q: "How much does termite treatment cost?",
+    a: "Full home treatments start at $899 depending on the size of the home and the extent of activity. Every termite job starts with a free inspection and a firm written quote — no surprises.",
+  },
+];
+
+function FaqItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="reveal overflow-hidden rounded-2xl bg-ivory ring-1 ring-charcoal/5">
+      <button
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        className="flex min-h-[64px] w-full items-center justify-between gap-4 px-6 py-4 text-left"
+      >
+        <span className="font-display text-base uppercase tracking-wide text-charcoal md:text-lg">{q}</span>
+        <span
+          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-forest text-lg text-white transition-transform duration-300 ${open ? "rotate-45" : ""}`}
+          aria-hidden="true"
+        >
+          +
+        </span>
+      </button>
+      <div className={`grid transition-all duration-300 ${open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
+        <div className="overflow-hidden">
+          <p className="px-6 pb-5 text-[15px] leading-relaxed text-charcoal/65">{a}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function Faq() {
+  return (
+    <section id="faq" className="bg-ivory py-16 md:py-28">
+      <div className="mx-auto max-w-4xl px-6 md:px-12">
+        <p className="reveal text-[11px] font-bold uppercase tracking-[0.3em] text-forest">
+          FAQ
+        </p>
+        <h2 className="reveal mt-3 font-display text-3xl uppercase leading-[1.05] text-charcoal md:text-5xl">
+          Asked all the time.
+        </h2>
+        <div className="mt-8 space-y-4 md:mt-12">
+          {FAQS.map((f) => (
+            <FaqItem key={f.q} q={f.q} a={f.a} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ---------- contact ---------- */
 export function Contact() {
   const [sent, setSent] = useState(false);
   return (
-    <section id="contact" className="relative overflow-hidden bg-cream py-12 md:py-32">
-      <p className="text-stroke-dark font-display pointer-events-none absolute left-0 top-6 select-none whitespace-nowrap text-[16vw] uppercase leading-none opacity-60">
-        Get a quote
-      </p>
-      <div className="relative mx-auto grid max-w-7xl gap-12 px-6 pt-16 md:px-12 md:pt-24 lg:grid-cols-2">
+    <section id="contact" className="relative overflow-hidden bg-forest-deep py-16 md:py-28">
+      <div
+        className="pointer-events-none absolute -left-24 top-0 h-96 w-96 rounded-full bg-moss/40 blur-[120px]"
+        aria-hidden="true"
+      />
+      <div className="relative mx-auto grid max-w-7xl gap-12 px-6 md:px-12 lg:grid-cols-2">
         <div>
-          <p className="reveal text-[11px] font-bold uppercase tracking-[0.3em] text-forest">
+          <p className="reveal text-[11px] font-bold uppercase tracking-[0.3em] text-cream/60">
             Contact
           </p>
-          <h2 className="reveal mt-3 font-display text-3xl uppercase leading-[1.05] text-charcoal md:text-7xl md:leading-[1.0]">
+          <h2 className="reveal mt-3 font-display text-4xl uppercase leading-[1.02] text-cream md:text-6xl">
             Get your free estimate.
           </h2>
-          <p className="reveal mt-5 max-w-md text-charcoal/65">
+          <p className="reveal mt-5 max-w-md text-cream/70">
             Call, text, or send the form — we usually reply within the hour during business hours.
           </p>
           <a
             href={BUSINESS.phoneHref}
-            className="reveal mt-6 inline-block font-display text-3xl text-charcoal underline decoration-forest decoration-4 underline-offset-8 transition hover:text-forest md:mt-8 md:text-5xl"
+            className="reveal mt-6 inline-block font-display text-3xl text-cream underline decoration-moss decoration-4 underline-offset-8 transition hover:text-white md:mt-8 md:text-5xl"
           >
             {BUSINESS.phone}
           </a>
-          <dl className="reveal mt-8 space-y-4 text-charcoal/75">
+          <dl className="reveal mt-8 space-y-4 text-cream/75">
             <div>
-              <dt className="text-[11px] font-bold uppercase tracking-[0.25em] text-charcoal/45">Address</dt>
+              <dt className="text-[11px] font-bold uppercase tracking-[0.25em] text-cream/45">Address</dt>
               <dd className="mt-1">{BUSINESS.address}</dd>
             </div>
             <div>
-              <dt className="text-[11px] font-bold uppercase tracking-[0.25em] text-charcoal/45">Hours</dt>
+              <dt className="text-[11px] font-bold uppercase tracking-[0.25em] text-cream/45">Hours</dt>
               <dd className="mt-1">
                 {BUSINESS.hours}
                 <br />
-                <span className="font-semibold text-forest">{BUSINESS.emergency}</span>
+                <span className="font-semibold text-cream">{BUSINESS.emergency}</span>
               </dd>
             </div>
           </dl>
         </div>
-        <div className="reveal rounded-3xl bg-white p-7 shadow-[0_20px_60px_rgba(0,0,0,0.12)] md:p-9">
+        <div className="reveal rounded-3xl bg-ivory p-7 shadow-[0_20px_60px_rgba(0,0,0,0.3)] md:p-9">
           {sent ? (
             <div className="flex h-full min-h-[380px] flex-col items-center justify-center text-center">
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#059669] text-3xl text-white">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-forest text-3xl text-white">
                 ✓
               </div>
               <h3 className="mt-5 font-display text-3xl uppercase text-charcoal">Thanks!</h3>
               <p className="mt-2 max-w-xs text-charcoal/70">
-                We'll be in touch shortly to schedule your free estimate.
+                We&apos;ll be in touch shortly to schedule your free estimate.
               </p>
             </div>
           ) : (
@@ -276,7 +349,7 @@ export function Contact() {
               <textarea rows={4} placeholder="Tell us about the job (optional)" className="w-full rounded-xl border border-charcoal/15 bg-cream px-4 py-3.5 text-base text-charcoal placeholder:text-charcoal/40 focus:border-forest focus:outline-none" />
               <button
                 type="submit"
-                className="min-h-[52px] w-full rounded-full bg-forest py-4 text-sm font-bold uppercase tracking-widest text-white transition hover:bg-forest-deep"
+                className="min-h-[52px] w-full rounded-full bg-forest py-4 text-sm font-bold uppercase tracking-widest text-white transition hover:bg-moss"
               >
                 Send request
               </button>
@@ -294,23 +367,26 @@ export function Contact() {
 /* ---------- footer ---------- */
 export function Footer() {
   return (
-    <footer className="bg-forest-deep py-12 md:py-16">
+    <footer className="bg-[#0a1f17] py-12 md:py-16">
       <div className="mx-auto max-w-7xl px-6 md:px-12">
         <div className="grid gap-10 md:grid-cols-[1.2fr_1fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-3">
-              <svg viewBox="0 0 64 64" className="h-9 w-9">
+              <svg viewBox="0 0 64 64" className="h-9 w-9" aria-hidden="true">
                 <rect width="64" height="64" rx="14" fill="#FAF6F0" />
-                <text x="32" y="44" font-family="Arial Black, sans-serif" font-size="36" font-weight="900" fill="#022C22" text-anchor="middle">S</text>
+                <text x="32" y="44" font-family="Arial Black, sans-serif" font-size="36" font-weight="900" fill="#1B4332" text-anchor="middle">S</text>
               </svg>
               <span className="font-display text-lg uppercase text-cream">ShieldPest Control</span>
             </div>
             <a
               href={BUSINESS.phoneHref}
-              className="mt-4 inline-block font-display text-xl text-cream underline decoration-forest decoration-2 underline-offset-4 hover:text-white"
+              className="mt-4 inline-block font-display text-xl text-cream underline decoration-moss decoration-2 underline-offset-4 hover:text-white"
             >
               {BUSINESS.phone}
             </a>
+            <p className="mt-3 text-sm text-cream/60">
+              <span className="text-star" aria-hidden="true">★★★★★</span> {BUSINESS.rating} · {BUSINESS.reviewCount} Google reviews
+            </p>
           </div>
           <nav aria-label="Services">
             <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-cream/45">Services</p>
@@ -385,7 +461,7 @@ export function MobileCallBar() {
         href={BUSINESS.phoneHref}
         className="flex min-h-[60px] items-center justify-center gap-2 bg-forest px-2 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 text-[13px] font-bold uppercase tracking-widest text-white"
       >
-        <svg viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current" strokeWidth="2">
+        <svg viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current" strokeWidth="2" aria-hidden="true">
           <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
         Call Now

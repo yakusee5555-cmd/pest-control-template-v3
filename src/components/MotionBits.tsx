@@ -4,12 +4,12 @@ import { useEffect, useRef, useState } from "react";
 export function Marquee({ items }: { items: string[] }) {
   const row = [...items, ...items];
   return (
-    <div className="overflow-hidden border-y border-cream/10 bg-ink py-4" aria-hidden="true">
+    <div className="overflow-hidden border-y border-forest-deep/20 bg-forest py-4" aria-hidden="true">
       <div className="marquee-track flex w-max items-center gap-8 pr-8">
         {row.map((t, i) => (
           <span key={i} className="flex items-center gap-8 whitespace-nowrap">
-            <span className="font-display text-sm uppercase tracking-[0.25em] text-cream/70">{t}</span>
-            <span className="text-forest">✦</span>
+            <span className="font-display text-sm uppercase tracking-[0.25em] text-cream/90">{t}</span>
+            <span className="text-cream/50">✦</span>
           </span>
         ))}
       </div>

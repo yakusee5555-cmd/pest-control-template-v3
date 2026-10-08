@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Footer, Header, MobileCallBar } from "./components/Sections";
-import { EdgeFoliage, StickyLeaf } from "./components/DecorBits";
+import { StickyLeaf } from "./components/DecorBits";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -34,7 +34,6 @@ export default function App() {
         <Footer />
         <MobileCallBar />
         <StickyLeaf />
-        <EdgeFoliage />
       </div>
     </BrowserRouter>
   );
